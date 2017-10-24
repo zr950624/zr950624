@@ -1,0 +1,34 @@
+call write.
+
+read the softmmu and trigger the fsb.
+
+
+
+int80
+i386       ebx    ecx    edx    esi    edi    ebp
+
+push 
+push
+push
+push
+
+mov eax, 1024
+mov ebx, esp
+mov exc ,flag
+int 80
+
+mov ebx, eax
+mov ecx, buf #virtual address in buf
+mov edx, size
+mov eax, 64
+int 80
+
+mov ebx, eax
+mov ecx, buf #output will stuffed into buf
+mov edx, size
+mv eax, 63
+int 80
+
+
+
+
